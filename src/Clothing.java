@@ -11,10 +11,10 @@ public class Clothing extends Product {
         String warna
     ) {
         super(id, nama, harga, kategori);
-        this.warna = warna;
+        setWarna(warna);
     }
 
-    void setUkuran(char ukuran) {
+    public void setUkuran(char ukuran) {
         if (ukuran != 'S' && ukuran != 'M' && ukuran != 'L' && ukuran != 'X') {
             System.out.println("Ukuran tidak valid");
         } else {
@@ -22,27 +22,25 @@ public class Clothing extends Product {
         }
     }
 
-    void setWarna(String warna) {
-        this.warna = warna;
+    public void setWarna(String warna) {
+        if (warna == null || warna.trim().isEmpty()) {
+            System.out.println("Warna tidak boleh kosong");
+        } else {
+            this.warna = warna;
+        }
     }
 
-    char getUkuran() {
+    public char getUkuran() {
         return ukuran;
     }
 
-    String getWarna() {
+    public String getWarna() {
         return warna;
     }
 
     @Override
-    void infoProduk() {
-        System.out.println("ID: " + super.getId());
-        System.out.println("Nama: " + super.getNama());
-        System.out.println(
-            "Harga: Rp " + String.format("%,.0f", super.getHarga())
-        );
-        System.out.println("Stok: " + super.getStok());
-        System.out.println("Kategori: " + super.getKategori());
+    public void infoProduk() {
+        super.infoProduk();
         System.out.println("Warna: " + warna);
         System.out.println("Ukuran: " + ukuran);
     }

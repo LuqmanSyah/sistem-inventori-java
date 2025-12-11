@@ -13,10 +13,14 @@ public class Electronics extends Product {
         String merk
     ) {
         super(id, nama, harga, kategori);
-        this.merk = merk;
+        setMerk(merk);
     }
 
-    void setGaransi(LocalDate garansi) {
+    public void setGaransi(LocalDate garansi) {
+        if (garansi == null) {
+            System.out.println("Tanggal garansi tidak boleh null");
+            return;
+        }
         if (garansi.isBefore(LocalDate.now())) {
             System.out.println("Tanggal garansi tidak valid");
         } else {
@@ -24,27 +28,25 @@ public class Electronics extends Product {
         }
     }
 
-    void setMerk(String merk) {
+    public void setMerk(String merk) {
+        if (merk == null || merk.trim().isEmpty()) {
+            System.out.println("Merk tidak boleh kosong");
+            return;
+        }
         this.merk = merk;
     }
 
-    LocalDate getGaransi() {
+    public LocalDate getGaransi() {
         return garansi;
     }
 
-    String getMerk() {
+    public String getMerk() {
         return merk;
     }
 
     @Override
-    void infoProduk() {
-        System.out.println("ID: " + super.getId());
-        System.out.println("Nama: " + super.getNama());
-        System.out.println(
-            "Harga: Rp " + String.format("%,.0f", super.getHarga())
-        );
-        System.out.println("Stok: " + super.getStok());
-        System.out.println("Kategori: " + super.getKategori());
+    public void infoProduk() {
+        super.infoProduk();
         System.out.println("Merk: " + merk);
         System.out.println("Garansi: " + garansi);
     }

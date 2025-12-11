@@ -13,19 +13,31 @@ public class Product {
         this.kategori = kategori;
     }
 
-    void setId(String id) {
-        this.id = id;
+    public void setId(String id) {
+        if (id == null || id.trim().isEmpty()) {
+            System.out.println("ID tidak boleh kosong");
+        } else {
+            this.id = id;
+        }
     }
 
-    void setNama(String nama) {
-        this.nama = nama;
+    public void setNama(String nama) {
+        if (nama == null || nama.trim().isEmpty()) {
+            System.out.println("Nama tidak boleh kosong");
+        } else {
+            this.nama = nama;
+        }
     }
 
-    void setHarga(double harga) {
-        this.harga = harga;
+    public void setHarga(double harga) {
+        if (harga < 0) {
+            System.out.println("Harga tidak boleh negatif");
+        } else {
+            this.harga = harga;
+        }
     }
 
-    void setStok(int stok) {
+    public void setStok(int stok) {
         if (stok < 0) {
             System.out.println("Stok tidak boleh negatif");
         } else {
@@ -33,31 +45,35 @@ public class Product {
         }
     }
 
-    void setKategori(String kategori) {
-        this.kategori = kategori;
+    public void setKategori(String kategori) {
+        if (kategori == null || kategori.trim().isEmpty()) {
+            System.out.println("Kategori tidak boleh kosong");
+        } else {
+            this.kategori = kategori;
+        }
     }
 
-    String getId() {
+    public String getId() {
         return id;
     }
 
-    String getNama() {
+    public String getNama() {
         return nama;
     }
 
-    double getHarga() {
+    public double getHarga() {
         return harga;
     }
 
-    int getStok() {
+    public int getStok() {
         return stok;
     }
 
-    String getKategori() {
+    public String getKategori() {
         return kategori;
     }
 
-    void infoProduk() {
+    public void infoProduk() {
         System.out.println("ID: " + id);
         System.out.println("Nama: " + nama);
         System.out.println("Harga: Rp " + String.format("%,.0f", harga));
@@ -65,7 +81,7 @@ public class Product {
         System.out.println("Kategori: " + kategori);
     }
 
-    void updateStok(int jumlah) {
+    public void updateStok(int jumlah) {
         if (stok + jumlah < 0) {
             System.out.println("Stok tidak boleh negatif");
         } else {

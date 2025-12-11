@@ -8,7 +8,11 @@ public class Food extends Product {
         super(id, nama, harga, kategori);
     }
 
-    void setTglKadaluarsa(LocalDate tglKadaluarsa) {
+    public void setTglKadaluarsa(LocalDate tglKadaluarsa) {
+        if (tglKadaluarsa == null) {
+            System.out.println("Tanggal kadaluarsa tidak boleh null");
+            return;
+        }
         if (tglKadaluarsa.isBefore(LocalDate.now())) {
             System.out.println("Tanggal kadaluarsa tidak valid");
         } else {
@@ -16,19 +20,13 @@ public class Food extends Product {
         }
     }
 
-    LocalDate getTglKadaluarsa() {
+    public LocalDate getTglKadaluarsa() {
         return tglKadaluarsa;
     }
 
     @Override
-    void infoProduk() {
-        System.out.println("ID: " + super.getId());
-        System.out.println("Nama: " + super.getNama());
-        System.out.println(
-            "Harga: Rp " + String.format("%,.0f", super.getHarga())
-        );
-        System.out.println("Stok: " + super.getStok());
-        System.out.println("Kategori: " + super.getKategori());
+    public void infoProduk() {
+        super.infoProduk();
         System.out.println("Tanggal Kadaluarsa: " + tglKadaluarsa);
     }
 }
