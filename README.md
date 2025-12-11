@@ -27,8 +27,7 @@ final-project/
 │   ├── Food.java             # Class turunan untuk produk makanan
 │   ├── Clothing.java         # Class turunan untuk produk pakaian
 │   ├── Inventory.java        # Class untuk mengelola daftar produk
-│   ├── InventorySystem.java  # Class ut
-ama dengan menu interaktif
+│   ├── InventorySystem.java  # Class utama dengan menu interaktif
 │   └── App.java
 ├── bin/                      # Compiled output files
 ├── lib/                      # Dependencies
